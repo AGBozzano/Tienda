@@ -1,0 +1,14 @@
+.nav-wrapper{
+	padding-left: 10px;
+	border-radius: 0px 0px 20px 20px;
+}
+.side-nav{
+	padding-top: 20px;
+}
+nav{
+	border-radius: 0px 0px 22px 22px;
+	border-bottom: 3px solid rgb(133, 193, 233);
+	border-left: 3px solid rgb(133, 193, 233);
+	border-right: 3px solid rgb(133, 193, 233);
+	box-shadow: 0px 10px 35px 0px rgba(0,0,0,0.75);
+}

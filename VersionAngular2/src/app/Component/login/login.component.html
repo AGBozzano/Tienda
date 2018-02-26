@@ -1,0 +1,30 @@
+
+    <div class="row login">
+    	<div class="col s12 m2 l3"></div>	
+
+    	<div class="col s12 m8 l6 login-card" >	
+	      <h4 class="center">Inicia Sesion</h4>
+	      <form>
+	      	<div class="row">
+        		<div class="input-field col s12">
+        			<i class="material-icons prefix">account_circle</i>
+          			<input id="email" type="email" class="validate" ngModel name="email" required pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" #email>
+          			<label class="active" for="email">Correo electrónico</label>
+        		</div>
+      		</div>
+	      	<div class="row">
+	      		<div class="input-field col s12">
+	      			<i class="material-icons prefix">https</i>
+			        <input id="password" type="password" class="validate" >
+			        <label class="active" for="password">Contraseña</label>
+		        </div>
+	      	</div>
+	      	 <a ><button class="btn waves-effect  green waves-light center" type="submit" [disabled]="!loginForm.valid">Ingresar
+  			</button></a>
+	      </form>
+	    </div>
+	    <div class="col s12 m2 l3"></div>	
+        
+    </div>
+
+
