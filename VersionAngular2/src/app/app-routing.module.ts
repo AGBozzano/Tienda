@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'catalogo', component: CatalogoComponent},
   { path: 'catalogo/producto/:id', component: ProductoComponent},
   { path: 'carrito', component: CarritoComprasComponent},
-  { path: '**', pathMatch: 'full', redirectTo: 'catalogo' }
+  { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 
 @NgModule({

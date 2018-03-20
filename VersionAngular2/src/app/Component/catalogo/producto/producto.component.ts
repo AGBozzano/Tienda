@@ -23,9 +23,12 @@ export class ProductoComponent implements OnInit {
     ){}
 
     ngOnInit() {
-
+      if (!this.auth.checkSession()){
+        console.log(sessionStorage.getItem("Session"))
+        this.router.navigate(['/login'])
+      }else{
         this.detalleProducto()
-  
+      }
     }
     detalleProducto(){
 	    this.activatedRoute.params.subscribe(params => {

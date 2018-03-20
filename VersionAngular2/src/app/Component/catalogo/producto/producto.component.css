@@ -1,5 +1,5 @@
 .detalle{
-	background-image: url('./assets/img/main-fondo.jpg');
+	background-image: url('/assets/img/main-fondo.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;

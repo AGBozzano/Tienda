@@ -1,1 +1,54 @@
+<div class="carrito">
+	<div class="container">
 		<barra-superior></barra-superior>
+	</div>	
+	<div class="container carrito-detalle animated fadeIn">
+		<h2 class="header">Carrito de Compras</h2>
+		<div class="row" *ngIf="this.carritoService.contadorCarrito()">
+			<div class="col s12 l8">
+				<div class="card horizontal " *ngFor="let item of listaCarrito">
+					<div class="card-image col s5">
+						<span class="eliminar-producto">
+		                    <i class="material-icons medium" (click)="eliminarProducto(item.id, null)" >highlight_off</i>
+		                </span>
+						<img src="{{item.imagen}}" class="responsive-img">
+
+					</div>
+					<div class="card-content col s4 center">
+		                <p class="center flow-text grey"><b>{{item.descripcion}}</b></p>
+		                <p><b>Precio: </b>{{item.precio | currency : 'USD' : 1-0-2 }}</p>
+                        <p><b>Cantidad: </b>{{item.cantidad}}</p>
+      
+			            <h5><b>Subtotal</b></h5>  
+			            <h5>{{this.carritoService.subtotal(item.precio, item.cantidad) | currency : 'USD' : 1-0-2}}</h5>
+			               
+			             
+        			</div>
+	        		<div class="card-action col s4 ">
+		                <button class="btn waves-effect waves-red" type="button" (click)="eliminarProducto(item.id, eliminar.value)">Eliminar</button>
+
+		                <input type="number" class="col s12"[value]="0" min="0" max={{item.cantidad}} class="form-control text-right" id="cantidad"  #eliminar>
+		
+				    </div>
+				</div>
+			</div>
+			<div class="col s12 l4">
+				 <div class="center">
+		           
+		            <h2> Total a pagar</h2>
+		            <h3>{{ this.total() | currency : 'USD' : 1-0-2}}</h3>
+		            
+		            <button class="col s6  btn waves-effect waves-red" type="button" (click)="this.vaciarCarrito()"><i class="material-icons left">delete</i>Vaciar Carrito</button>
+		            <button class="col s6  btn waves-effect waves-green" type="button"  (click)="pagarCarrito()"><i class="material-icons left">credit_card</i>Pagar</button>
+		           
+		        </div>
+			</div>
+		</div>
+		<div *ngIf="!this.carritoService.contadorCarrito()">
+			<div class="s12">
+				<p>No ha agregado productos al carrito de compras. Lo invitamos a dar un paseo por nuestra <a [routerLink]="['tienda']">Tienda Virtual</a></p>
+				
+			</div>
+		</div>
+	</div>
+</div>

@@ -19,22 +19,26 @@ import { Producto } from '../../Models/Producto';
 })
 export class CatalogoComponent implements OnInit {
 
+	private titulo : string;
+    public session : string;
   	private formulario : FormGroup; 
  	private listaProductos : Producto[]; 
 	public productoCarrito : ProductoCarrito;
-	private titulo : string;
-    public session : string;
-
-  	constructor(private detectChanges:ChangeDetectorRef,  
-                private router : Router, 
-                private tiendaService : GestionProductosService,
-                private auth : GestionUserService,
-                private carritoService : GestionCarritoService 
-               ) { this.titulo = 'Catálogo de Productos'}
 
 
+  	constructor(
+  		private detectChanges:ChangeDetectorRef,  
+        private router : Router, 
+        private tiendaService : GestionProductosService,
+        private auth : GestionUserService,
+        private carritoService : GestionCarritoService 
+    ){}
 
 	ngOnInit() {
+		if (!this.auth.checkSession()){ 
+      		this.router.navigate(['/login']) 
+   		}else{
+   			this.session = sessionStorage.getItem("Carrito")
 	        this.formulario = new FormGroup( 
 		        {
 		            'descripcion' : new FormControl(),
@@ -42,9 +46,11 @@ export class CatalogoComponent implements OnInit {
 		            'precio': new FormControl(),
 		            'cantidad': new FormControl(),
 		        })
-	        this.mostrarProductos() 
+	        this.mostrarProductos()
+	    }
 	    
 	}
+	
 	mostrarProductos(){
 	    if(!this.tiendaService.productosCatalogo){
 	        this.tiendaService.getProductos().subscribe(

@@ -11,11 +11,15 @@ export class GestionProductosService {
 
   public catalogo : Producto[]; 
   public productosCatalogo : Producto[]; 
+  public termino: string;
 
-  constructor(private http : Http, private router : Router) { }
+  constructor(private http : Http, private router : Router)
+  {
+    this.termino = "";
+   }
   
   public getProductos(){
-    return this.http.get('https://tienda-angular2-82354.firebaseio.com/.json').map(
+    return this.http.get('https://tienda-angular2-82354.firebaseio.com/producto/.json').map(
       (response : Response) => {
         this.catalogo =  response.json(); 
         this.productosCatalogo = this.catalogo 
@@ -34,16 +38,25 @@ export class GestionProductosService {
   cargarCatalogo(){
     return this.productosCatalogo
   }
+
+  public getTermino() {
+    return this.termino;
+  }
   
   public filtrarProducto(filtro:string){
     this.productosCatalogo = this.catalogo;  
     filtro.toLowerCase(); 
+    this.termino = "";
     let itemMatch : Producto[] = []; 
     for(let item of this.productosCatalogo){ 
       let nombre = item.nombre.toLowerCase(); 
-      if(nombre.includes(filtro)){ 
-        itemMatch.push(item)} 
+        if(nombre.includes(filtro)){ 
+          itemMatch.push(item)
+           this.termino = itemMatch[0].nombre;
+        } 
+
       }
+     
       return itemMatch; 
   }
   

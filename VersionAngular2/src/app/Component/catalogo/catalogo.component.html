@@ -1,5 +1,5 @@
 <div class="catalogo ">
-	<div class="container animated fadeIn fast">
+	<div class="container">
 		<barra-superior></barra-superior>
 	</div>	
 	<div class="container catalogo-productos animated fadeIn">
@@ -9,13 +9,18 @@
 			</div>
 			<div class="col s12 m3 center busqueda">
 				<p>¿Que estas buscando?</p> 
-				<input type="text" placeholder="Buscar productos" class="white" name="" (input)="filtrarCatalogo(filtro.value)" #filtro>
+				<input type="text" placeholder="Buscar productos" class="white" name="" #filtro (keyup)="filtrarCatalogo(filtro.value)"  aria-label="Search" >
+				<small><span class="left-align" *ngIf="filtro.value.length > 0">{{ this.tiendaService.getTermino() }} </span></small>
 
 			</div>
 		</div>
 		<div class="divider"></div>
 		<div class="row">
+		 	
+
+
 		 	<div class="col s12 m4 l3 caja-producto" *ngFor="let item of listaProductos">
+	
 		 		<div class="card producto z-depth-5">
 		 			<div class="card-image " [ngClass]="{grayscale:(item.disponible <= 0)}">
 		 				<img class="responsive-img" src="{{item.imagen}}" alt="{{item.descripcion}}">
@@ -26,7 +31,7 @@
 		 				<p><b>Disponibles: </b>{{item.disponible ? item.disponible : 'Agotado'}}</p>
 
 		 				<div class="box-add">
-				            <button class="btn  col s6 waves-effect waves-light" type="button" [disabled]="(item.disponible <= 0)" (click)="agregarProducto(item.id, agregar.value)">Añadir</button>
+				            <button class="btn col s6 waves-effect waves-light" type="button" [disabled]="(item.disponible <= 0)" (click)="agregarProducto(item.id, agregar.value)">Añadir</button>
 				               
 				            <input type="number" [value]="1" [disabled]="(item.disponible <= 0)" min="0" max={{item.disponible}} class="col s5 center offset-s1" id="disponible"  #agregar>  
 			            </div>

@@ -1,5 +1,5 @@
 .catalogo{
-	background-image: url('./assets/img/main-fondo.jpg');
+	background-image: url('/assets/img/main-fondo.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -37,13 +37,13 @@
 .producto{
 	color:black;
 	border: solid 1px grey;
-		overflow: hidden;
+	overflow: hidden;
 	position: relative;
 
 }
 .card-image img{
 	height: 190px;
-	image-rendering: optimizeSpeed;
+
 }
 .caja-producto{
 	margin-bottom: 20px;

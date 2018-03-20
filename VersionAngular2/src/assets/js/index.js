@@ -1,4 +1,8 @@
- $(document).ready(function() {
- 	$('.materialboxed').materialbox();
-     $(".button-collapse").sideNav();
-  });
+
+ (function($){
+  $(function(){
+  	$('.materialboxed').materialbox();
+    $('.button-collapse').sideNav();
+
+  }); // end of document ready
+})(jQuery);
