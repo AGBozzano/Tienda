@@ -41,15 +41,15 @@ class NotFound extends React.Component{
   //==============================================================================
   //                    Verificar items en carrito
   itemsCarrito(){
-    if(sessionStorage.getItem("Carrito")){                                    //Verificar si la sesión del carrito contiene información
-      this.state.listaCarrito = JSON.parse(sessionStorage.getItem("Carrito")); //Actualizar la información del carrito con la sesión actual en formato JSON
-      return JSON.parse(sessionStorage.getItem("Carrito"));                    //Devolver los items del carrito en formato JSON
+    if(sessionStorage.getItem("Carrito")){                                    
+      this.state.listaCarrito = JSON.parse(sessionStorage.getItem("Carrito")); 
+      return JSON.parse(sessionStorage.getItem("Carrito"));                    
     }
-    return 0;                                                                  //Devolver 0 si no existen carritos
+    return 0;                                                                 
   }
   //--------------------Contador de items en menu---------------------------------
   contadorCarrito(){
-    return this.itemsCarrito().length //Contar la cantidad de items en el carrito
+    return this.itemsCarrito().length 
   }
 }
 export default NotFound;

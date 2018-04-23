@@ -61,23 +61,23 @@ class App extends React.Component{
 
     //-------------Verificar Carrito------------------------------------------------
     /*verificarCarrito(item, cantidad){
-      if(this.guardarCarrito(item, cantidad) == false){                                //Verificar que el item enviado como parámetro no exista previamente en el arreglo de objetos de productos
-        this.state.listaCarrito.push(item)                                             //Si no existe agregarlo al arreglo
+      if(this.guardarCarrito(item, cantidad) == false){                               
+        this.state.listaCarrito.push(item)                                            
       }
-      sessionStorage.setItem("Carrito", JSON.stringify(this.state.listaCarrito));      //Actualizar la sesion Carrito con los nuevos valores del arreglo en formato string
+      sessionStorage.setItem("Carrito", JSON.stringify(this.state.listaCarrito));    
     }
     //==============================================================================
     //                    Verificar items en carrito
     itemsCarrito(){
-      if(sessionStorage.getItem("Carrito")){                                    //Verificar si la sesión del carrito contiene información
-        //this.state.listaCarrito = JSON.parse(sessionStorage.getItem("Carrito")); //Actualizar la información del carrito con la sesión actual en formato JSON
-        return JSON.parse(sessionStorage.getItem("Carrito"));                    //Devolver los items del carrito en formato JSON
+      if(sessionStorage.getItem("Carrito")){                                   
+        //this.state.listaCarrito = JSON.parse(sessionStorage.getItem("Carrito")); 
+        return JSON.parse(sessionStorage.getItem("Carrito"));                   
       }
-      return [];                                                                  //Devolver arreglo vacío si no existen carritos
+      return [];                                                                 
     }*/
     //--------------------Contador de items en menu---------------------------------
     /*contadorCarrito(){
-      return this.itemsCarrito().length                                         //Contar la cantidad de items en el carrito
+      return this.itemsCarrito().length                                        
     }*/
   }
   export default App;

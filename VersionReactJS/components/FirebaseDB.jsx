@@ -13,6 +13,15 @@ import * as firebase from 'firebase';
   };
   firebase.initializeApp(config);
 
+
+
+export const ref = firebase.database().ref()
+export const refprod = firebase.database().ref('producto')
+export const refcar = firebase.database().ref('producto')
+export const firebaseAuth = firebase.auth
+
+
+
 const productosDb = firebase.database().ref().child('producto')
 const usuariosDb = firebase.database().ref().child('usuarios')
 
