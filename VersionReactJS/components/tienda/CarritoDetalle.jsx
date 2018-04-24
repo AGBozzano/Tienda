@@ -88,12 +88,7 @@ class CarritoDetalle extends React.Component {
     this.setState({productoCarrito : JSON.parse(sessionStorage.getItem("Carrito"))})  
   }
 
-  removerItem(item){                                                            
-    const index = this.state.listaProductos.indexOf(item);                        
-    if (index < 0 ) return                                                       
-    this.state.listaProductos.splice(index, 1)                                  
-    this.setState({listaProductos: this.state.listaProductos})                   
-  }
+
 
 }
 

@@ -1,0 +1,18 @@
+USUARIO:
+   nextu@gmail.com
+CONTRASEÑA:
+   123456
+
+
+Instalacion:
+	
+1. Ejecutar el comando npm install -g @angular/cli 
+2. Descargar el contenido de GitHub
+3. Ubicarse en la carpeta /VersionAngular2 en la cónsola de comandos
+4. Ejecutar el comando npm install desde la cónsola de comandos
+5. Ejecutar el comando ng serve desde la cónsola de comandos
+6. Abrir el navegador e ingresar a la pagina http://localhost:4200
+7. Ingresar con la info previamente mencionada
+
+by Alejandro Bozzano
+

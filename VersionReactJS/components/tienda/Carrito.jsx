@@ -137,7 +137,7 @@ class Carrito extends React.Component{
     const listaCarrito = this.state.listaCarrito                                 
     this.setState({ pagar : true})
     request
-    .get('https://tienda-angular2.firebaseio.com/productos/.json')                
+    .get('https://tienda-angular2-82354.firebaseio.com/producto/.json')                
     .then((res) => {
       if( res.error || !res.ok){                                                 
         console.log('Se produjo un error al realizar la petición al servidor. '+error )
@@ -145,8 +145,10 @@ class Carrito extends React.Component{
       }else{
         console.log('Conexión establecida. Actualizando base de datos')          
         const respuesta = res.text                                               
-        let catalogo = JSON.parse(respuesta)                                     
-        for (let itemCatalogo of catalogo){                                      
+        let catalogo = JSON.parse(respuesta) 
+        console.log(res)  
+        for (let itemCatalogo of catalogo){      
+                                       
           for (let item of listaCarrito){                                        
             if ( itemCatalogo.id == item.id ){                                   
               let cantidad = Number(item.cantidad);                              
@@ -161,7 +163,7 @@ class Carrito extends React.Component{
 }
 
 actualizarDB(itemCatalogo, cantidad){
-  request.put(`https://tienda-angular2.firebaseio.com/productos/${itemCatalogo.id}.json`)  
+  request.put(`https://tienda-angular2-82354.firebaseio.com/producto/${itemCatalogo.id}.json`)  
   .set('Content-Type', 'application/json')                                                
   .send(itemCatalogo)                                                                    
   .then((res) => {                                                                     

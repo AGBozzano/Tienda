@@ -15,7 +15,7 @@ class LoginForm extends React.Component{
   constructor(props){
     super(props);
     this.state = { 
-      loginMessage: null,
+      loginMessage: 'Correo: nextu@gmail.com --- Password: 123456',
       email: '',
       ps: '' ,
     };
@@ -25,16 +25,14 @@ class LoginForm extends React.Component{
   }
 
   handleChange(event) {
-    console.log(sessionStorage.getItem("Session"))
+
     if(event.target.id == "email"){ 
       this.setState({email: event.target.value});
     
     }
     if(event.target.id == "password"){ 
         this.setState({ps: event.target.value});
-    
     }
-        console.log(this.state.email);
   }
 
 
@@ -48,28 +46,21 @@ class LoginForm extends React.Component{
     login(email, password)
       .then((response) => {
         sessionStorage.setItem("Session", this.state.email)
-        this.setState(this.setErrorMsg('Conectando'))
-        console.log(response)
-
-      }
-
-        
-      )
+        this.setState({loginMessage:'Conectando'});
+     
+      })
       .catch((error) => {
-        this.setState(this.setErrorMsg('Invalid username/password.'))
+        
+        this.setState({loginMessage:error.message});
       })
 
     
   }
 
-  setErrorMsg(error) {
-    return 
-      this.setState({loginMessage:error})
-    
-  }
+
 
   checkSession(){
-    console.log("Checkeando login" + sessionStorage.getItem("Session"))
+   
 
     return sessionStorage.getItem("Session");
   }
@@ -87,24 +78,27 @@ class LoginForm extends React.Component{
               <h4 className="text-center white-text">Inicia Sesión</h4>
               <div className="col s12 input-field">
         
-                <input type="email" ref="email" id="email" value={this.state.email} onChange={this.handleChange} placeholder="ale@gmail.com" className="validate white-text" required aria-required="true" />
+                <input type="email" ref="email" id="email" value={this.state.email} onChange={this.handleChange} className="validate white-text" required aria-required="true" />
                 <label htmlFor="email" data-error="Error en formato de email. Ejemplo: ale@gmail.com" data-success="Formato de email correcto">Correo Electrónico</label>
               </div>
               <div className="col s12 input-field">
-                <input type="password" ref="password"  id="password" value={this.state.ps} onChange={this.handleChange}   placeholder="12345" className="validate  white-text" required aria-required="true" />
+                <input type="password" ref="password"  id="password" value={this.state.ps} onChange={this.handleChange}   className="validate  white-text" required aria-required="true" />
                 <label htmlFor="password" data-error="Contraseña no puede ser vacía" className="white-text">Contraseña</label>
               </div>
-              <div className="col s12 center-align">
+              <div className="col s12 center-align blue-text">
             
                   {this.state.loginMessage}
-     
-              
+              </div>
+              <div className="col s12 center-align">
                 <button type="submit" className="btn btn-success" >Ingresar</button>
               </div>
             </form>
           </div>
         </div>
      );
+            if (this.checkSession()){
+        return <Redirect to='/tienda'/>
+      }
     }
 //==============================================================================
 }

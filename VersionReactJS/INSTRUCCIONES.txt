@@ -1,0 +1,22 @@
+USUARIO:
+   nextu@gmail.com
+CONTRASEÑA:
+   123456
+
+
+Instalacion de Componentes necesarios:
+
+1.npm install -g babel
+2.npm install -g babel-cli 
+
+Instalacion:
+
+2. Descargar el contenido de GitHub
+3. Ubicarse en la carpeta /VersionReactJS en la cónsola de comandos
+4. Ejecutar el comando npm install desde la cónsola de comandos
+5. Ejecutar el comando npm start desde la cónsola de comandos
+6. Abrir el navegador e ingresar a la pagina http://localhost:8080
+7. Ingresar con la info previamente mencionada
+
+by Alejandro Bozzano
+
